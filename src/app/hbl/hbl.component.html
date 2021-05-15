@@ -1,0 +1,22 @@
+ <app-home></app-home>     
+      <nav class="navbar navbar-expand-lg navbar-light"  style="height: 3rem; width: 81rem; margin-top: 10pxs;">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav nav-pills">
+            <li class="sub-selected" style="margin-left: 20px; margin-right: 20px;">
+              <a  data-toggle="tab" class="nav-link" style="margin-left: 40px; font-size: medium;" [routerLink]="['/hbl/hc-reference']" routerLinkActive="active">HC-Reference</a>
+            </li>
+            <li class="nav nav-pills">
+                <a data-toggle="tab" class="nav-link" [routerLink]="['/hbl/hc-transdoc']" routerLinkActive="active">HC Transport Document</a>
+            </li>
+            <li class="nav nav-pills">
+                <a data-toggle="tab" class="nav-link" style="margin-left: 40px; font-size: medium;" [routerLink]="['/hbl/hc-transdoc-msr']" routerLinkActive="active">HC Transport Document_msr</a>
+            </li>
+            <li class="nav nav-pills">
+                <a data-toggle="tab" class="nav-link" style="margin-left: 40px; font-size: medium;" [routerLink]="['/hbl/hc-transequipment']" routerLinkActive="active">HC Transport Equipment</a>
+            </li>
+            <li class="nav nav-pills">
+              <a data-toggle="tab" class="nav-link" style="margin-left: 40px; font-size: medium;" [routerLink]="['/hbl/hc-itrny']" routerLinkActive="active">HC Itinerary</a>
+          </li>
+          </ul>
+        </div>
+      </nav>    

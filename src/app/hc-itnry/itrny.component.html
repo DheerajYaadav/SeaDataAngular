@@ -1,0 +1,77 @@
+<app-home></app-home>
+<app-mbl></app-mbl>
+<form [formGroup]="itrnyForm" (ngSubmit)="save()">
+    <div class="row">
+        <!-- <input type="hidden" formControlName="mblNo" class="form-control" maxlength="10" value="{{message}}"/> -->
+        <div class="col-sm-12">
+            <div class="card" style="width: 75rem; height: 17rem; margin-left: 30px; margin-top: 5px;">
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <!-- <input type="hidden" formControlName="mblNo" class="form-control" maxlength="10" value="{{message}}"/> -->
+
+                            <label for="prtOfCallSeqNmbr">Port of call sequence number<span
+                                    class="required">*</span></label>
+                            <input type="text" formControlName="prtOfCallSeqNmbr" class="form-control" maxlength="5" />
+                            <small
+                                *ngIf="f.prtOfCallSeqNmbr.touched && f.prtOfCallSeqNmbr.invalid && f.prtOfCallSeqNmbr.errors.required"
+                                style="margin-left: 50px; 
+            width: 250px;" class="text-danger">
+                                Port of Call Sequence Number required.</small>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="form-group">
+                            <label for="prtOfCallCdd">Port of Call, Coded</label>
+                            <input type="text" formControlName="prtOfCallCdd" class="form-control" maxlength="10" />
+                            <!-- <small
+                                *ngIf="f.prtOfAcptCdd.touched && f.prtOfAcptCdd.invalid && f.prtOfAcptCdd.errors.required"
+                                style="margin-left: 200px; 
+            width: 250px;" class="text-danger">
+                                Port of Acceptance Code required.</small> -->
+                        </div>
+                        <div class="form-group">
+                            <label for="prtOfCallName">Port of Call Name</label>
+                            <input type="text" formControlName="prtOfCallName" class="form-control" maxlength="256" />
+                            <!-- <small
+                                *ngIf="f.prtOfAcptCdd.touched && f.prtOfAcptCdd.invalid && f.prtOfAcptCdd.errors.required"
+                                style="margin-left: 200px; 
+            width: 250px;" class="text-danger">
+                                Port of Acceptance Code required.</small> -->
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="form-group">
+                            <label for="nxtPrtOfCallCdd">Next port of call, coded</label>
+                            <input type="text" formControlName="nxtPrtOfCallCdd" class="form-control" maxlength="10" />
+                        </div>
+                        <div class="form-group">
+                            <label for="nxtPrtOfCallName">Next port of call name</label>
+                            <input type="text" formControlName="nxtPrtOfCallName" class="form-control"
+                                maxlength="256" />
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="form-group">
+                            <label for="modeOfTrnsprt">Mode of Transport<span class="required">*</span></label>
+                            <select formControlName="modeOfTrnsprt" class="form-control form-control-sm">
+                                <option>---Select Mode Of Transport---</option>
+                                <option>1–Sea</option>
+                                <option>2–Rail</option>
+                                <option>3–Road</option>
+                                <option>4-Air</option>
+                            </select>
+                            <small
+                                *ngIf="f.modeOfTrnsprt.touched && f.modeOfTrnsprt.invalid && f.modeOfTrnsprt.errors.required"
+                                style="margin-left: 150px; 
+                            width: 250px;" class="text-danger">
+                                Mode of Transport Required</small>
+                        </div>
+                        <button type="submit" class="btn btn-success"
+                            style="width: 200px; margin-left: 600px; margin-top: 10px; background-color: #75DDB2;">ADD</button>
+                        <div class="col-md-2"></div>
+                        <button type="button" (click)="reset()" class="btn btn-info" style="width: 10rem; margin-top: 10px">Reset</button>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

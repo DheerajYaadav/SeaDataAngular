@@ -1,0 +1,33 @@
+<app-home></app-home>
+<form [formGroup]="transmitForm" (ngSubmit)="transmit()">
+    <div class="row">
+        <div *ngIf="!json" class="col-sm-12">
+            <div class="card" style="width: 75rem; height: 17rem; margin-left: 30px; margin-top: 50px;">
+                <div class="card-body">
+                    <div class= "form-group" style="margin-top: 20px; margin-left: 400px;">
+                        <label for="mbl" class="req" style="margin-left: 10px;"> Select MBL NO<span class="required">*</span></label>
+                        <select id="mblNo"  formControlName="mblNo" style="width: 200px;" name="mblNo"class="form-control form-control-sm dropdownlistsearch" data-="true">
+                          <option>-------Select MBL No-----</option>
+                          <option *ngFor="let mcRef of mcRefList">
+                              {{mcRef.mstrBlNo}}
+                          </option>
+                      </select>
+                    </div>
+                    <div class= "form-group">
+                        <button type="submit" class="btn btn-success"
+                            style="width: 200px; margin-left: 400px; margin-top: 10px; background-color: #75DDB2;">Transmit</button>
+                            </div>
+                        <div class="col-md-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div *ngIf="json">
+    
+    
+    <pre>{{ jsonObject | json }}
+    </pre>
+
+
+</div>

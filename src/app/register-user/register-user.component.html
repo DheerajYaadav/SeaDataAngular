@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4" style="margin-right: 630px; margin-left: 130px; margin-top: 50px;">
+        
+<div class="card m-4" style="width: 60rem;">
+    <h5 class="card-header card bg-success text-white text-center p-3">Register New User</h5>
+<div class="card-body">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="name" style="margin-left: 80px;">User-Name</label> <span class="required">*</span>
+                <input type="text" formControlName="name" class="form-control" style="margin-left: 80px;"/>
+                <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                    <div *ngIf="f.name.errors.required">User-Name is required.</div>
+                </div>    
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="form-group col-7">
+                <label for="password" style="margin-left: 80px;">Password</label><span class="required">*</span>
+                <input type="password" formControlName="password" class="form-control" style="margin-left: 75px; width: 300px;"/>
+                <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+                    <div *ngIf="f.password.errors.required">Password is required.</div>
+                </div>   
+            </div>
+            <div class="col-md-2"></div>
+
+            <div class="form-group col-7">
+                <label for="password" style="margin-left: 150px;"> Confirm-Password</label><span class="required">*</span>
+                <input type="password" formControlName="password" class="form-control" style="margin-left: 75px; width: 300px;"/>
+                <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+                    <div *ngIf="f.password.errors.required">Password is required.</div>
+                </div>   
+            </div>
+            <div class="col-md-3"></div>
+            <button type="submit" class="btn btn-outline-primary"  style="margin-left: 200px; width: 30rem; font-family: open-sans-regular; font-weight: 400; font-size: 16px; text-align: center;">Register </button>
+            <div class="col-md-2"></div>
+        </div>
+    </form>
+</div>
+<div class="col-md-4"></div>
+</div>
+</div>

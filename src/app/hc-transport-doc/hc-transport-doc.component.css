@@ -1,0 +1,22 @@
+.required
+{
+    color: red;
+}
+.form-control.ng-touched.ng-invalid {
+    border:1px solid red;
+   }
+   .form-control.ng-touched.ng-valid {
+    border:1px solid green;
+   }
+
+   label {
+    float: left;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.form-control{
+    margin-left: 200px; 
+    margin-top: 5px;
+    width: 150px;
+}

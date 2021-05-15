@@ -1,0 +1,141 @@
+<app-hbl></app-hbl>
+<form [formGroup]="equipmentForm" (ngSubmit)="save()">
+    <div class="row">
+        <div class= "form-group" style="margin-top: 20px;">
+            <label for="mbl" class="req" style="margin-left: 80px;"> Select MBL NO<span class="required">*</span></label>
+            <select  [(ngModel)]="chosenMod" (ngModelChange)="selectMbl()" id="mblNo"  formControlName="mblNo" style="width: 200px;" name="mblNo"class="form-control form-control-sm dropdownlistsearch" data-="true">
+              <option>-------Select MBL No-----</option>
+              <option *ngFor="let mcRef of mcRefList">
+                  {{mcRef.mstrBlNo}}
+              </option>
+          </select>
+        </div>
+        <div class= "form-group" style="margin-top: 20px;">
+            <label for="hbl" class="req" style="margin-left: 80px;"> Select HBL NO<span class="required">*</span></label>
+            <select id="hblNo"  formControlName="hblNo" style="width: 200px;" name="hblNo"class="form-control form-control-sm dropdownlistsearch" data-="true">
+              <option>-------Select HBL No-----</option>
+              <option *ngFor="let hcRef of hcRefList">
+                {{hcRef.blNo}}
+              </option>
+          </select>
+        </div>
+        <div class="col-sm-12">
+            <div class="card" style="width: 75rem; height: 26rem; margin-left: 30px; margin-top: 5px;">
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group">
+
+                            <label for="eqmtSeqNo">Equipment Sequence Number<span class="required">*</span></label>
+                            <input type="number" formControlName="eqmtSeqNo" class="form-control" maxlength="5" />
+                            <!-- <small
+                                *ngIf="f.nmbrOfPkgs.touched && f.nmbrOfPkgs.invalid && f.nmbrOfPkgs.errors.required"
+                                style="margin-left: 200px; 
+            width: 250px;" class="text-danger">
+                                Port of Acceptance Code required.</small> -->  
+
+                        </div>
+                        <div class="col-md-1"></div>
+
+                        <div class="form-group">
+                            <label for="eqmtId">Equipment Identifier <span class="required">*</span></label>
+                            <input type="text" formControlName="eqmtId" class="form-control" maxlength="17" />
+                            <!-- <small
+                                *ngIf="f.prtOfAcptCdd.touched && f.prtOfAcptCdd.invalid && f.prtOfAcptCdd.errors.required"
+                                style="margin-left: 200px; 
+            width: 250px;" class="text-danger">
+                                Port of Acceptance Code required.</small> -->
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eqmtTyp">Equipment Type<span
+                                    class="required">*</span></label>
+                            <input type="text" formControlName="eqmtTyp" class="form-control" maxlength="3" />
+                            <!-- <small
+                                *ngIf="f.prtOfAcptCdd.touched && f.prtOfAcptCdd.invalid && f.prtOfAcptCdd.errors.required"
+                                style="margin-left: 200px; 
+            width: 250px;" class="text-danger">
+                                Port of Acceptance Code required.</small> -->
+
+                        </div>
+                        <div class="col-md-1"></div>
+
+                        <div class="form-group">
+                            <label for="eqmtSize">Equipment Size</label>
+                            <input type="text" formControlName="eqmtSize" class="form-control" maxlength="4" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eqmtLoadStatus">Equipment Load Status<span class="required">*</span></label>
+                            <select formControlName="eqmtLoadStatus" class="form-control form-control">
+                                <option>---Select</option>
+                                <option>FCL</option>
+                                <option>LCL</option>
+                                <option>EMP</option>
+                              </select>
+              
+                        </div>
+                        <div class="col-md-1"></div>
+
+                        <div class="form-group">
+                            <label for="adtnlEqmtHold">Additional equipment hold</label>
+                            <input type="text" formControlName="adtnlEqmtHold" class="form-control" maxlength="256" />
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eqmtSealTyp">Equipment Seal Type</label>
+                            <select formControlName="eqmtSealTyp" class="form-control form-control">
+                                <option>---Select</option>
+                                <option>ESEAL</option>
+                                <option>BTSL</option>
+                              </select> 
+
+                        </div>
+                        <div class="col-md-1"></div>
+
+                        <div class="form-group">
+                            <label for="eqmtSealNmbr">Equipment Seal number</label>
+                            <input type="text" formControlName="eqmtSealNmbr" class="form-control" maxlength="15" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="otherEqmtId">Other equipment id</label>
+                            <input type="text" formControlName="otherEqmtId" class="form-control" maxlength="256" />
+
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="form-group">
+                            <label for="socFlag">Soc Flag<span class="required">*</span></label>
+                            <select formControlName="socFlag" class="form-control form-control">
+                                <option>---Select</option>
+                                <option>Y</option>
+                                <option>N</option>
+                              </select>                        </div>
+                        <div class="form-group">
+                            <label for="cntrAgntCd">Container Agent Code</label>
+                            <input type="text" formControlName="cntrAgntCd" class="form-control" maxlength="17" />
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="form-group">
+                            <label for="cntrWeight">Container Weight</label>
+                            <input type="number" formControlName="cntrWeight" class="form-control" maxlength="17" />
+                        </div>
+                        <div class="form-group">
+                            <label for="totalNmbrOfPkgs">Total no of packages<span class="required">*</span></label>
+                            <input type="number" formControlName="totalNmbrOfPkgs" class="form-control" maxlength="8" />
+
+                        </div>
+                        <button type="submit" class="btn btn-primary"
+                            style="width: 200px;height: 2.5rem; margin-left: 110px; background-color: #75DDB2;">Save</button>
+                        <div class="col-md-2"></div>
+                        <button (click)="reset()" type="button" class="btn btn-info"
+                            style="width: 10rem; height: 2.5rem;">Reset</button>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

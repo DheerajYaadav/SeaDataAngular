@@ -1,0 +1,140 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <a class="navbar-brand" style="margin-left: 40px; font-size: medium;" [routerLink]="['/select-location']" routerLinkActive="active">Star EDI</a>
+  <a class="navbar-brand" style="margin-left: 40px; font-size: medium;" [routerLink]="['/errorCode']" routerLinkActive="active">Error-Code</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+    
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a style="margin-left: 40px; font-size: medium;"  class="navbar-brand" [routerLink]="['/list-mc-reference']" routerLinkActive="active">MBL</a>
+        </li>
+        <li class="nav-item">
+            <a class="navbar-brand" style="margin-left: 40px; font-size: medium;" [routerLink]="['/hbl/hc-reference']" routerLinkActive="active">HBL</a>
+        </li>
+        <li class="nav-item">
+            <a class="navbar-brand" style="margin-left: 40px; font-size: medium;" [routerLink]="['/general']" routerLinkActive="active">General</a>
+        </li>
+ 
+        <li class="nav-item dropdown">
+            <a class="navbar-brand" style="margin-left: 40px; font-size: medium;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Reports</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">CheckList</a>
+              <a class="dropdown-item" href="#">Pendency Report</a>
+              <a class="dropdown-item" href="#">Submission Report</a>
+              <div class="dropdown-divider"></div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="navbar-brand"  style="margin-left: 40px; font-size: medium;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Transmission</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="mbl/transmit">Transmit</a>
+            </div>
+            
+          </li>
+          <li class="nav-item dropdown">
+            <a class="navbar-brand" style="margin-left: 40px; font-size: medium;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Masters</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" [routerLink]="['/list-consignor']" routerLinkActive="active">Consigner</a>
+              <a class="dropdown-item" >Consignee</a>
+              <a class="dropdown-item" href="#">Notify Party</a>
+              <a class="dropdown-item" href="#">Vessal</a>
+
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="navbar-brand"  style="margin-left: 40px; font-size: medium;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Admin </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" [routerLink]="['/registerUser']" routerLinkActive="active">Register User</a>
+              <a class="dropdown-item" href="#">Register Profile</a>
+              <a class="dropdown-item" href="#">Carrier</a>
+              <a class="dropdown-item" href="#">Transport</a>
+              <a class="dropdown-item" href="#">Delivery Port</a>
+              <a class="dropdown-item" href="#">Account Statement By User</a>
+              <a class="dropdown-item" href="#">Update Pending Manifest</a>
+              <a class="dropdown-item" href="#">Transmit File For All</a>
+            </div>
+            
+          </li>
+          <li class="nav-item dropdown">
+            <a class="navbar-brand"  style="margin-left: 40px; font-size: medium;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Signed in{{locationCode}}- {{userName}}</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Change Password</a>
+              <a class="dropdown-item" href="#">My Profile</a>
+            </div>
+          </li>
+      </ul>
+        <button class="btn btn my-2 my-sm-0" style="background-color: #75DDB2; color: white;" type="button">Logout</button>
+    </div>
+  </nav>
+
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#">Hidden brand</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a style="margin-left: 40px; font-size: medium;"  class="navbar-brand" [routerLink]="['/list-mc-reference']" routerLinkActive="active">MBL</a>
+        </li>
+        <li class="nav-item">
+            <a class="navbar-brand" style="margin-left: 40px; font-size: medium;" [routerLink]="['/hbl/hc-reference']" routerLinkActive="active">HBL</a>
+        </li>
+        <li class="nav-item">
+            <a class="navbar-brand" style="margin-left: 40px; font-size: medium;" [routerLink]="['/general']" routerLinkActive="active">General</a>
+        </li>
+ 
+        <li class="nav-item dropdown">
+            <a class="navbar-brand" style="margin-left: 40px; font-size: medium;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Reports</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">CheckList</a>
+              <a class="dropdown-item" href="#">Pendency Report</a>
+              <a class="dropdown-item" href="#">Submission Report</a>
+              <div class="dropdown-divider"></div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="navbar-brand"  style="margin-left: 40px; font-size: medium;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Transmission</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Transmit</a>
+            </div>
+            
+          </li>
+          <li class="nav-item dropdown">
+            <a class="navbar-brand" style="margin-left: 40px; font-size: medium;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Masters</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" [routerLink]="['/list-consignor']" routerLinkActive="active">Consigner</a>
+              <a class="dropdown-item" >Consignee</a>
+              <a class="dropdown-item" href="#">Notify Party</a>
+              <a class="dropdown-item" href="#">Vessal</a>
+
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="navbar-brand"  style="margin-left: 40px; font-size: medium;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Admin </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" [routerLink]="['/registerUser']" routerLinkActive="active">Register User</a>
+              <a class="dropdown-item" href="#">Register Profile</a>
+              <a class="dropdown-item" href="#">Carrier</a>
+              <a class="dropdown-item" href="#">Transport</a>
+              <a class="dropdown-item" href="#">Delivery Port</a>
+              <a class="dropdown-item" href="#">Account Statement By User</a>
+              <a class="dropdown-item" href="#">Update Pending Manifest</a>
+              <a class="dropdown-item" href="#">Transmit File For All</a>
+            </div>
+            
+          </li>
+          <li class="nav-item dropdown">
+            <a class="navbar-brand"  style="margin-left: 40px; font-size: medium;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >{{locationCode}}- {{userName}}</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Change Password</a>
+              <a class="dropdown-item" href="#">My Profile</a>
+            </div>
+          </li>
+      </ul>
+      <button class="btn btn my-2 my-sm-0" style="background-color: #75DDB2; color: white;" type="button">Logout</button>
+    </div>
+  </nav> -->

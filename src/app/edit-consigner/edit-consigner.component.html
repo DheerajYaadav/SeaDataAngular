@@ -1,0 +1,56 @@
+<app-home></app-home>
+<div class="col-md-6 user-container">
+  <div class="card" style="width: 28rem; height: 30rem; margin-left: 20px; margin-top: 5px;">
+    <div class="card-header">
+        <h6>Edit Consignor</h6>
+    </div>    
+    <form [formGroup]="editConsignerForm" (ngSubmit)="onSubmit()">
+      <div class="card-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="id">Id:</label>
+            <input type="text" formControlName="id"  name="id" class="form-control form-control-sm" id="id" readonly="true">
+          </div>
+          <div class="col-md-1"></div>
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" formControlName="city" placeholder="city" name="city" class="form-control form-control-sm" id="city">
+      </div>
+      <div class="form-group">
+        <label for="code">Code:</label>
+        <input formControlName="code" name="code" class="form-control form-control-sm" id="code">
+      </div>
+      <div class="col-md-1"></div>
+      <div class="form-group">
+        <label for="countryCode">Country-Code:</label>
+        <input formControlName="countryCode" placeholder="Last name" name="countryCode" class="form-control form-control-sm" id="countryCode">
+      </div>
+  
+      <div class="form-group">
+        <label for="countrySubDiv">Country-Sub-Div:</label>
+        <input type="text" formControlName="countrySubDiv"  name="countrySubDiv" class="form-control form-control-sm" id="countrySubDiv">
+      </div>
+      <div class="col-md-1"></div>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" formControlName="name" placeholder="salary" name="name" class="form-control form-control-sm" id="name">
+      </div>
+  
+      <div class="form-group">
+        <label for="postcode">Post-Code:</label>
+        <input type="text" formControlName="postcode" placeholder="postcode" name="postcode" class="form-control form-control-sm" id="postcode">
+      </div>
+      <div class="col-md-1"></div>
+      <div class="form-group">
+        <label for="streetAddress">Street Address:</label>
+        <input type="text" formControlName="streetAddress" placeholder="streetAddress" name="streetAddress" class="form-control form-control-sm" id="streetAddress">
+      </div>
+      <div class="form-group">
+        <label for="typeOfCode">Type of Code:</label>
+        <input type="text" formControlName="typeOfCode" placeholder="typeOfCode" name="typeOfCode" class="form-control form-control-sm" id="typeOfCode">
+      </div>
+      <button class="btn btn-success" style=" margin-left: 50px; margin-top: 25px; background-color: #75DDB2; height: 40px; width: 100px;">Update</button>
+      </div>
+      </div>
+    </form>
+  </div>

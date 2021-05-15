@@ -1,0 +1,14 @@
+.table {
+
+    background-color: white;border: 0; width: 1000px; margin-left: 135px;
+}
+
+@media screen and (max-width:1200px) {
+    
+    .table {
+        background-color: white;
+        border:0; 
+        max-width: 10px; 
+        margin-left: 10px;
+    }
+}

@@ -1,0 +1,37 @@
+.form-control{
+    width: 350px;
+    margin-left: 80px;
+    }
+    .required
+    {
+        color: red;
+    }
+ 
+.lb {
+    margin-left: 80px;
+}
+
+/* .row {
+    background-color: #75DDB2;
+    opacity: 0.5;
+} */
+    .card {
+        margin-left: 100px; margin-top: 120px; max-width: 550px;
+    }
+
+ @media screen and (max-width:900px) {
+    .lb {
+        margin-left: 10px;
+    }
+
+    .form-control{
+        width: 250px;
+        margin-left: 50px;
+        }
+
+        .card{
+            max-width: 330px;
+            margin-left: 45px;
+        }
+     
+ }

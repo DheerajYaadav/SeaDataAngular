@@ -1,0 +1,199 @@
+<app-hbl></app-hbl>
+<form [formGroup]="transportDocMsrForm">
+    <div class="row">
+        <div class="form-group" style="margin-top: 20px;">
+            <label for="mbl" class="req" style="margin-left: 80px;"> Select MBL NO<span
+                    class="required">*</span></label>
+            <select (change)="selectMbl()" id="mblNo" formControlName="mblNo"
+                style="width: 200px;" name="mblNo" class="form-control form-control-sm dropdownlistsearch" data-="true">
+                <option>-------Select MBL No-----</option>
+                <option *ngFor="let mcRef of mcRefList">
+                    {{mcRef.mstrBlNo}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group" style="margin-top: 20px;">
+            <label for="hbl" class="req" style="margin-left: 80px;"> Select HBL NO<span
+                    class="required">*</span></label>
+            <select id="hblNo" formControlName="hblNo" style="width: 200px;" name="hblNo"
+                class="form-control form-control-sm dropdownlistsearch" data-="true">
+                <option>-------Select HBL No-----</option>
+                <option *ngFor="let hcRef of hcRefList">
+                    {{hcRef.blNo}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-12">
+            <div class="card" style="width: 75rem; height: 26rem; margin-left: 30px; margin-top: 5px;">
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nmbrOfPkgs">Number of packages <span class="required">*</span></label>
+                            <input type="number" formControlName="nmbrOfPkgs" class="form-control" maxlength="10" />
+                            <!-- <small
+                                *ngIf="f.nmbrOfPkgs.touched && f.nmbrOfPkgs.invalid && f.nmbrOfPkgs.errors.required"
+                                style="margin-left: 200px; 
+            width: 250px;" class="text-danger">
+                                Port of Acceptance Code required.</small> -->
+
+                        </div>
+                        <div class="col-md-1"></div>
+
+                        <div class="form-group">
+                            <label for="typsOfPkgs">Type of Packages <span class="required">*</span></label>
+                            <input type="text" formControlName="typsOfPkgs" class="form-control" maxlength="10" />
+                            <!-- <small
+                                *ngIf="f.prtOfAcptCdd.touched && f.prtOfAcptCdd.invalid && f.prtOfAcptCdd.errors.required"
+                                style="margin-left: 200px; 
+            width: 250px;" class="text-danger">
+                                Port of Acceptance Code required.</small> -->
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="marksNoOnPkgs">Marks & Numbers on packages <span
+                                    class="required">*</span></label>
+                            <input type="text" formControlName="marksNoOnPkgs" class="form-control" maxlength="10" />
+                            <!-- <small
+                                *ngIf="f.prtOfAcptCdd.touched && f.prtOfAcptCdd.invalid && f.prtOfAcptCdd.errors.required"
+                                style="margin-left: 200px; 
+            width: 250px;" class="text-danger">
+                                Port of Acceptance Code required.</small> -->
+
+                        </div>
+                        <div class="col-md-1"></div>
+
+                        <div class="form-group">
+                            <label for="grossWeight">Gross Weight </label>
+                            <input type="number" formControlName="grossWeight" class="form-control" maxlength="10" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="netWeight">Net Weight</label>
+                            <input type="number" formControlName="netWeight" class="form-control" maxlength="10" />
+
+
+                        </div>
+                        <div class="col-md-1"></div>
+
+                        <div class="form-group">
+                            <label for="unitOfWeight">Unit of weight </label>
+                            <input type="text" formControlName="unitOfWeight" class="form-control" maxlength="10" />
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="grossVolume">Gross Volume </label>
+                            <input type="number" formControlName="grossVolume" class="form-control" maxlength="10" />
+
+
+                        </div>
+                        <div class="col-md-1"></div>
+
+                        <div class="form-group">
+                            <label for="unitOfVolume">Unit of Volume </label>
+                            <input type="number" formControlName="unitOfVolume" class="form-control" maxlength="10" />
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="invoiceValueOfCnsgmt">Invoice value of consignment</label>
+                            <input type="number" formControlName="invoiceValueOfCnsgmt" class="form-control"
+                                maxlength="10" />
+
+
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="form-group">
+                            <label for="crncyCd">Currency Code </label>
+                            <input type="text" formControlName="crncyCd" class="form-control" maxlength="10" />
+
+
+                        </div>
+                        <button type="button" (click)="save()" class="btn btn-primary"
+                            style="width: 200px; background-color:#75DDB2; margin-left: 50px;">Save</button>
+                        <div class="col-md-2"></div>
+                        <button (click)="reset()" type="button" class="btn btn-info"
+                            style="width: 10rem;">Reset</button>
+                        <div class="col-md-2"></div>
+
+                        <button [disabled]="!submitted" data-toggle="modal" data-target="#exampleModal"
+                            data-whatever="@mdo" type="button" class="btn"
+                            style="width: 10rem; background-color:#75DDB2;">
+                            + Add Item Details</button>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Item Details</h5>
+                                        <button style="background-color:#75DDB2;" type="button" class="close"
+                                            data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form [formGroup]="itemDetailsForm">
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">Cargo Item Sequence
+                                                    No<span class="required">*</span></label>
+                                                <input type="text" formControlName="crgoItemSeqNmbr"
+                                                    class="form-control" id="recipient-name" style="width: 200px;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">HS Code<span
+                                                        class="required">*</span></label>
+                                                <input type="text" formControlName="hsCd" class="form-control"
+                                                    id="recipient-name" style="width: 200px;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">Cargo Item
+                                                    Description </label>
+                                                <input type="text" formControlName="crgoItemDesc" class="form-control"
+                                                    id="recipient-name" style="width: 200px;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">UNO Code <span
+                                                        class="required">*</span></label>
+                                                <input type="text" formControlName="unoCd" class="form-control"
+                                                    id="recipient-name" style="width: 200px;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">IMDG Code <span
+                                                        class="required">*</span></label>
+                                                <input type="text" formControlName="imdgCd" class="form-control"
+                                                    id="recipient-name" style="width: 200px;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">Type of Packages
+                                                </label>
+                                                <input type="text" formControlName="typOfPkgs2" class="form-control"
+                                                    id="recipient-name" style="width: 200px;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">Number of Packages
+                                                </label>
+                                                <input type="text" formControlName="nmbrOfPkgs2" class="form-control"
+                                                    id="recipient-name" style="width: 200px;">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button (click)="resetItemDetailsForm()" type="button" class="btn btn-info"
+                                            style="width: 8rem;">Reset</button>
+                                        <button type="button" (click)="addItemDetails()" data-dismiss="modal"
+                                            class="btn" style="width: 8rem; background-color: #75DDB2;">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

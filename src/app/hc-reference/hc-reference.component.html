@@ -1,0 +1,320 @@
+<app-hbl></app-hbl>
+<form [formGroup]="mcRefForm" (ngSubmit)="save()">
+    <div class="row">
+   
+        <div class="col-sm-6">
+            <div class="card" style="width: 35rem; height: 34rem; margin-left: 20px; margin-top: 5px;">
+                <div class="card-body">
+                    <div class="form-row">
+
+                        <div class= "form-group" style="margin-top: 20px;">
+                            <label for="mbl" class="req" style="margin-left: 5px;"> Select MBL NO<span class="required">*</span></label>
+                            <select id="mblNo"  formControlName="mblNo" style="width: 250px;" name="mblNo"class="form-control form-control-sm dropdownlistsearch" data-="true">
+                              <option>-------Select MBL No-----</option>
+                              <option *ngFor="let mcRef of mcRefList">
+                                  {{mcRef.mstrBlNo}}
+                              </option>
+                          </select>
+                        </div>
+
+
+                            <div class="form-group">
+                                <label for="subLineNo">Subline No<span class="required">*</span></label>
+                                <input type="number" formControlName="subLineNo" class="form-control form-control-sm"
+                                    maxlength="5" />
+                                <small *ngIf="f.subLineNo.touched && f.subLineNo.invalid && f.subLineNo.errors.required" style="margin-left: 200px; 
+          width: 250px;" class="text-danger">
+                                    Sub Line No. required.</small>
+
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="form-group">
+                                <label for="blNo">House BL No.<span class="required">*</span></label>
+                                <input type="text" formControlName="blNo" class="form-control form-control-sm"
+                                    maxlength="20" />
+                                <small *ngIf="f.blNo.touched && f.blNo.invalid && f.blNo.errors.required"
+                                    style="margin-left: 160px; 
+          width: 250px;" class="text-danger">
+                                    HBL No Required.</small>
+                            </div>
+                            <div class="col-md-1"></div>
+
+                            <div class="form-group">
+                                <label for="blDt">House BL Date.<span class="required">*</span></label>
+                                <input type="date" formControlName="blDt" class="form-control form-control-sm" />
+                                <small *ngIf="f.blDt.touched && f.blDt.invalid && f.blDt.errors.required"
+                                    style="margin-left: 150px; 
+              width: 250px;" class="text-danger">
+                                    HBL Date Required.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Consolidated Indicator<span class="required">*</span></label>
+                                <select formControlName="consolidatedIndctr" class="form-control form-control-sm">
+                                    <option>---Select Consolidted Indctr---</option>
+                                    <option>S</option>
+                                    <option>C</option>
+                                    <option>H</option>
+                                </select>
+                                <small
+                                    *ngIf="f.consolidatedIndctr.touched && f.consolidatedIndctr.invalid && f.consolidatedIndctr.errors.required"
+                                    style="margin-left: 100px; 
+              width: 250px;" class="text-danger">
+                                    Indicator Required.</small>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="form-group">
+                                <label for="name">Previous Declartion<span class="required">*</span></label>
+                                <select formControlName="prevDec" class="form-control form-control-sm">
+                                    <option>---Select Previous Dec---</option>
+                                    <option>N</option>
+                                    <option>C</option>
+                                    <option>Y</option>
+                                </select>
+                                <div *ngIf="mcRefForm.value.prevDec ==='Y'">
+                                    <button data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"
+                                        type="button" class="btn btn-success btn-sm">
+                                        + Prev Dec</button>
+
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                        Master Previous Declaration</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form [formGroup]="itemDetailsForm">
+                                                        <div class="form-group">
+                                                            <label for="recipient-name" class="col-form-label">CIN Type
+                                                                <span class="required">*</span></label>
+
+                                                            <select formControlName="prevDec" class="form-control"
+                                                                style="width: 200px;">
+                                                                <option>MCIN</option>
+                                                                \ <option>PCIN</option>
+                                                            </select>
+                                                            <small
+                                                                *ngIf="f.consolidatedIndctr.touched && f.consolidatedIndctr.invalid && f.consolidatedIndctr.errors.required"
+                                                                style="margin-left: 100px; 
+              width: 250px;" class="text-danger">
+                                                                CIN Type Required.</small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="recipient-name" class="col-form-label">CIN
+                                                                No</label>
+                                                            <input type="text" formControlName="hsCd"
+                                                                class="form-control" id="recipient-name"
+                                                                style="width: 200px;">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="recipient-name" class="col-form-label">CSN
+                                                                Submitted
+                                                                Type </label>
+                                                            <input type="text" formControlName="crgoItemDesc"
+                                                                class="form-control" id="recipient-name"
+                                                                style="width: 200px;">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="recipient-name" class="col-form-label">CSN
+                                                                Submitted by
+                                                            </label>
+                                                            <input type="text" formControlName="unoCd"
+                                                                class="form-control" id="recipient-name"
+                                                                style="width: 200px;">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="recipient-name" class="col-form-label">CSN
+                                                                Reporting
+                                                                Type </label>
+                                                            <input type="text" formControlName="imdgCd"
+                                                                class="form-control" id="recipient-name"
+                                                                style="width: 200px;">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="recipient-name" class="col-form-label">CSN Site
+                                                                ID
+                                                            </label>
+                                                            <input type="text" formControlName="typOfPkgs"
+                                                                class="form-control" id="recipient-name"
+                                                                style="width: 200px;">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="recipient-name" class="col-form-label">CSN
+                                                                Number
+                                                            </label>
+                                                            <input type="number" formControlName="nmbrOfPkgs"
+                                                                class="form-control" maxlength="6" id="recipient-name"
+                                                                style="width: 200px;">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="recipient-name" class="col-form-label">CSN Date
+                                                            </label>
+                                                            <input type="date" formControlName="nmbrOfPkgs"
+                                                                class="form-control" id="recipient-name"
+                                                                style="width: 200px;">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button (click)="resetItemDetailsForm()" type="button"
+                                                        class="btn btn-info" style="width: 8rem;">Reset</button>
+                                                    <button type="button" (click)="save()" data-dismiss="modal"
+                                                        class="btn btn-primary" style="width: 8rem;">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <small *ngIf="f.prevDec.touched && f.prevDec.invalid && f.prevDec.errors.required"
+                                    style="margin-left: 120px; 
+              width: 250px;" class="text-danger">
+                                    Prev Dec Required.</small>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="form-group">
+                                <label for="name">Consolidated PAN<span class="required">*</span></label>
+                                <input type="text" formControlName="consolidatorPan"
+                                    class="form-control form-control-sm" maxlength="35" />
+                                <small
+                                    *ngIf="f.consolidatorPan.touched && f.consolidatorPan.invalid && f.consolidatorPan.errors.required"
+                                    style="margin-left: 130px; 
+              width: 250px;" class="text-danger">
+                                    Consolidor PAN Required.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="trnshprCd">Transhipper Code<span class="required">*</span></label>
+                                <input type="text" formControlName="trnshprCd"
+                                    class="form-control form-control-sm" maxlength="35" />
+                                <small
+                                    *ngIf="f.trnshprCd.touched && f.trnshprCd.invalid && f.trnshprCd.errors.required"
+                                    style="margin-left: 130px; 
+              width: 250px;" class="text-danger">
+                                    Transhipper Code</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="trnshprBond">Transhipper Bond<span class="required">*</span></label>
+                                <input type="text" formControlName="trnshprBond"
+                                    class="form-control form-control-sm" maxlength="35" />
+                                <small
+                                    *ngIf="f.trnshprBond.touched && f.trnshprBond.invalid && f.trnshprBond.errors.required"
+                                    style="margin-left: 130px; 
+              width: 250px;" class="text-danger">
+                                    Transhipper Bond.</small>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" style="width: 35rem; height: 30rem; margin-left: -10px; margin-top: 5px;">
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstPrtOfEntry">First Port Entry<span class="required">*</span></label>
+                            <input type="text" formControlName="firstPrtOfEntry" class="form-control form-control-sm"
+                                maxlength="10" />
+                            <small
+                                *ngIf="f.firstPrtOfEntry.touched && f.firstPrtOfEntry.invalid && f.firstPrtOfEntry.errors.required"
+                                style="margin-left: 150px; 
+            width: 250px;" class="text-danger">
+                                First port entry required.
+                            </small>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="form-group">
+                            <label for="destPrt">Destination Port<span class="required">*</span></label>
+                            <input type="text" formControlName="destPrt" class="form-control form-control-sm"
+                                maxlength="10" />
+                            <small *ngIf="f.destPrt.touched && f.destPrt.invalid && f.destPrt.errors.required" style="margin-left: 140px; 
+              width: 250px;" class="text-danger">
+                                Destination port required.
+                            </small>
+                        </div>
+                        <div class="col-md-1"></div>
+
+                        <div class="form-group">
+                            <label for="nxtPrtOfUnlading">Next Port UnLanding<span class="required">*</span></label>
+                            <input type="text" formControlName="nxtPrtOfUnlading" class="form-control form-control-sm"
+                                maxlength="10" />
+                            <small
+                                *ngIf="f.nxtPrtOfUnlading.touched && f.nxtPrtOfUnlading.invalid && f.nxtPrtOfUnlading.errors.required"
+                                style="margin-left: 110px; 
+              width: 250px;" class="text-danger">
+                                Next port unlanding required.
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="natrOfCrgo">Nature of Cargo<span class="required">*</span></label>
+                            <select formControlName="natrOfCrgo" class="form-control form-control-sm">
+                                <option>---Select Nature of Cargo---</option>
+                                <option>C</option>
+                                <option>LB</option>
+                                <option>DB</option>
+                            </select>
+                            <small *ngIf="f.natrOfCrgo.touched && f.natrOfCrgo.invalid && f.natrOfCrgo.errors.required"
+                                style="margin-left: 145px; 
+              width: 250px;" class="text-danger">
+                                Nature of Cargo Required.</small>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="form-group">
+                            <label for="itemTyp">Item Type<span class="required">*</span></label>
+                            <select formControlName="itemTyp" class="form-control form-control-sm">
+                                <option>---Select Item Type---</option>
+                                <option>GC</option>
+                                <option>UB</option>
+                                <option>OT</option>
+                            </select>
+                            <small *ngIf="f.itemTyp.touched && f.itemTyp.invalid && f.itemTyp.errors.required" style="margin-left: 200px; 
+              width: 250px;" class="text-danger">
+                                Item Type Required.</small>
+                        </div>
+                        <div class="col-md-1"></div>
+
+                        <div class="form-group">
+                            <label for="crgoMvmt">Cargo Movement<span class="required">*</span></label>
+                            <select formControlName="crgoMvmt" class="form-control form-control-sm">
+                                <option>---Select Cargo Mvmnt---</option>
+                                <option>LC</option>
+                                <option>TI</option>
+                                <option>TC</option>
+                                <option>DT</option>
+                                <option>FT</option>
+                            </select>
+                            <small *ngIf="f.crgoMvmt.touched && f.crgoMvmt.invalid && f.crgoMvmt.errors.required" style="margin-left: 145px; 
+              width: 250px;" class="text-danger">
+                                Cargo Movement Required.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="typOfCrgo">Type of Cargo<span class="required">*</span></label>
+                            <select formControlName="typOfCrgo" class="form-control form-control-sm">
+                                <option>---Select Type of Cargo---</option>
+                                <option>IM</option>
+                                <option>EX</option>
+                                <option>CG</option>
+
+                                <option>TR</option>
+                            </select>
+
+                            <small *ngIf="f.typOfCrgo.touched && f.typOfCrgo.invalid && f.typOfCrgo.errors.required"
+                                style="margin-left: 170px; 
+              width: 250px;" class="text-danger">
+                                Type of Cargo Required.</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary"
+                            style="width: 200px; margin-left: 50px; background-color: #75DDB2;">Save</button>
+                        <div class="col-md-2"></div>
+                        <button (click)="reset()" type="button" class="btn btn-info"
+                            style="width: 10rem; background-color: darkgrey;">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>

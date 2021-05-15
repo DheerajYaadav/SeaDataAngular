@@ -1,0 +1,274 @@
+<app-home></app-home>
+<form [formGroup]="generalForm" (ngSubmit)="save()">
+    <div class="row">
+
+        <div class="col-sm-4">
+            <div class="form-group" style="margin-top: 20px;">
+                <label for="mbl" class="req" style="margin-left: 50px; margin-top: 1px;"> Select MBL NO<span
+                        class="required">*</span></label>
+                <select id="mblNo" formControlName="mblNo" style="width: 200px;" name="mblNo"
+                    class="form-control form-control-sm dropdownlistsearch" data-="true">
+                    <option>-------Select MBL No-----</option>
+                    <option *ngFor="let mcRef of mcRefList">
+                        {{mcRef.mstrBlNo}}
+                    </option>
+                </select>
+            </div>
+            <div class="card" style="width: 25rem; height: 30rem; margin-left: 20px; margin-top: 10px;">
+                <div class="card-header">
+                    <h6>Header</h6>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="cl" for="senderID">Sender-Id<span class="required">*</span></label>
+                            <input type="text" formControlName="senderID" class="form-control form-control-sm"
+                                maxlength="5" />
+                            <small *ngIf="f.senderID.touched && f.senderID.invalid && f.senderID.errors.required" style="margin-left: 150px; 
+                  width: 250px;" class="text-danger">
+                                Sender Id Required.</small>
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="receiverID">Receiver-Id<span class="required">*</span></label>
+                            <input type="text" formControlName="receiverID" class="form-control form-control-sm"
+                                maxlength="5" />
+                            <small *ngIf="f.receiverID.touched && f.receiverID.invalid && f.receiverID.errors.required"
+                                style="margin-left: 200px; 
+                    width: 250px;" class="text-danger">
+                                Receiver Id required.</small>
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="versionNo">Version-Id<span class="required">*</span></label>
+                            <input type="text" formControlName="versionNo" class="form-control form-control-sm"
+                                maxlength="5" />
+                            <!-- <small *ngIf="f.lineNo.touched && f.lineNo.invalid && f.lineNo.errors.required" style="margin-left: 200px; 
+                    width: 250px;" class="text-danger">
+                          Line No. required.</small> -->
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="indicator">Indicator<span class="required">*</span></label>
+                            <input type="text" formControlName="indicator" class="form-control form-control-sm"
+                                maxlength="5" />
+                            <!-- <small *ngIf="f.lineNo.touched && f.lineNo.invalid && f.lineNo.errors.required" style="margin-left: 200px; 
+                    width: 250px;" class="text-danger">
+                          Line No. required.</small> -->
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="messageID">Message-Id<span class="required">*</span></label>
+                            <input type="text" formControlName="messageID" class="form-control form-control-sm"
+                                maxlength="5" />
+                            <small *ngIf="f.messageID.touched && f.messageID.invalid && f.messageID.errors.required"
+                                style="margin-left: 100px; 
+                    width: 250px;" class="text-danger">
+                                Message ID required.</small>
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="sequenceOrControlNumber">Sequence No<span
+                                    class="required">*</span></label>
+                            <input type="number" formControlName="sequenceOrControlNumber"
+                                class="form-control form-control-sm" maxlength="5" />
+                            <small
+                                *ngIf="f.sequenceOrControlNumber.touched && f.sequenceOrControlNumber.invalid && f.sequenceOrControlNumber.errors.required"
+                                style="margin-left: 100px; 
+                    width: 250px;" class="text-danger">
+                                Sequence No. required.</small>
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="reportingEvent">Reporting-Event<span
+                                    class="required">*</span></label>
+                            <select formControlName="reportingEvent" class="form-control form-control-sm">
+                                <option>Select Reporting-Event</option>
+                                <option>SCE</option>
+                                <option>SCX</option>
+                                <option>SCD</option>
+                                <option>SCA</option>
+                                <option>SCU</option>
+                                <option>SCC</option>
+                            </select>
+                            <!-- <small
+                          *ngIf="f.consolidatedIndctr.touched && f.consolidatedIndctr.invalid && f.consolidatedIndctr.errors.required"
+                          style="margin-left: 100px; 
+                        width: 250px;" class="text-danger">
+                          Indicator Required.</small> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card" style="width: 25rem; height: 32rem; margin-left: 20px; margin-top: 5px;">
+                <div class="card-header">
+                    <h6>Declaration Reference & Authorized Person</h6>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="cl" for="msgTyp">Message Type<span class="required">*</span></label>
+                            <select formControlName="msgTyp" class="form-control form-control-sm">
+                                <option>Select Message-Type</option>
+                                <option>F-Fresh</option>
+                                <option>A-Amendment </option>
+                                <option>D-Deletion</option>
+                            </select>
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="prtofRptng">Port of Reporting<span class="required">*</span></label>
+                            <input type="text" formControlName="prtofRptng" class="form-control form-control-sm"
+                                maxlength="10" />
+                            <!-- <small *ngIf="f.lineNo.touched && f.lineNo.invalid && f.lineNo.errors.required" style="margin-left: 200px; 
+                    width: 250px;" class="text-danger">
+                          Line No. required.</small> -->
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="jobNo">Job Number<span class="required">*</span></label>
+                            <input type="number" formControlName="jobNo" class="form-control form-control-sm"
+                                maxlength="7" />
+                            <!-- <small *ngIf="f.lineNo.touched && f.lineNo.invalid && f.lineNo.errors.required" style="margin-left: 200px; 
+                    width: 250px;" class="text-danger">
+                          Line No. required.</small> -->
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="reportingEvent1">Reporting-Event<span
+                                    class="required">*</span></label>
+                            <select formControlName="reportingEvent1" class="form-control form-control-sm">
+                                <option>Select Reporting-Event</option>
+                                <option>SCE</option>
+                                <option>SCX</option>
+                                <option>SCD</option>
+                                <option>SCA</option>
+                                <option>SCU</option>
+                                <option>SCC</option>
+                            </select>
+                            <!-- <small
+                          *ngIf="f.consolidatedIndctr.touched && f.consolidatedIndctr.invalid && f.consolidatedIndctr.errors.required"
+                          style="margin-left: 100px; 
+                        width: 250px;" class="text-danger">
+                          Indicator Required.</small> -->
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="sbmtrTyp">Submitter Type<span class="required">*</span></label>
+                            <input type="text" formControlName="sbmtrTyp" class="form-control form-control-sm"
+                                maxlength="4" />
+                            <!-- <small *ngIf="f.lineNo.touched && f.lineNo.invalid && f.lineNo.errors.required" style="margin-left: 200px; 
+                    width: 250px;" class="text-danger">
+                          Line No. required.</small> -->
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="sbmtrCd">Submitter Code<span class="required">*</span></label>
+                            <input type="text" formControlName="sbmtrCd" class="form-control form-control-sm"
+                                maxlength="15" />
+                            <!-- <small *ngIf="f.lineNo.touched && f.lineNo.invalid && f.lineNo.errors.required" style="margin-left: 200px; 
+                    width: 250px;" class="text-danger">
+                          Line No. required.</small> -->
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="authReprsntvCd">Authorised Representative Code <span
+                                    class="required">*</span></label>
+                            <input type="text" formControlName="authReprsntvCd" class="form-control form-control-sm"
+                                maxlength="10" />
+                            <!-- <small *ngIf="f.lineNo.touched && f.lineNo.invalid && f.lineNo.errors.required" style="margin-left: 200px; 
+                width: 250px;" class="text-danger">
+                      Line No. required.</small> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card" style="width: 23rem; height: 29rem; margin-left: 20px; margin-top: 5px;">
+                <div class="card-header">
+                    <h6>Vessel-Details & Voyage-Details</h6>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="cl" for="modeOfTrnsprt">Mode of Transport<span
+                                    class="required">*</span></label>
+                            <select style="margin-left: 150px; width: 190px; margin-top: 10px;"
+                                formControlName="modeOfTrnsprt" class="form-control form-control-sm">
+                                <option>Choose Transport Mode</option>
+                                <option>1-Sea</option>
+                                <option>2-Rail</option>
+                                <option>3-Truck</option>
+                                <option>4-Air</option>
+                            </select>
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="typOfTrnsprtMeans">Type of Transport Means<span
+                                    class="required">*</span></label>
+                            <select style="margin-left: 185px; width: 160px; margin-top: 10px;"
+                                formControlName="typOfTrnsprtMeans" class="form-control form-control-sm">
+                                <option>Choose Transport Means</option>
+                                <option>10-IMO Vessel</option>
+                                <option>11-Non IMO Vessel</option>
+                            </select>
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="trnsprtMeansId">Transport Means Id<span
+                                    class="required">*</span></label>
+                            <input type="text" style="margin-left: 150px; width: 190px; margin-top: 10px;"
+                                formControlName="trnsprtMeansId" class="form-control form-control-sm" maxlength="25" />
+                            <!-- <small *ngIf="f.lineNo.touched && f.lineNo.invalid && f.lineNo.errors.required" style="margin-left: 200px; 
+                    width: 250px;" class="text-danger">
+                          Line No. required.</small> -->
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="cnvnceRefNmbr">Conveyance Ref No.<span
+                                    class="required">*</span></label>
+                            <input type="text" style="margin-left: 150px; width: 190px; margin-top: 10px;"
+                                formControlName="cnvnceRefNmbr" class="form-control form-control-sm" maxlength="35" />
+                            <!-- <small *ngIf="f.lineNo.touched && f.lineNo.invalid && f.lineNo.errors.required" style="margin-left: 200px; 
+                    width: 250px;" class="text-danger">
+                          Line No. required.</small> -->
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="totalNmbrOfLines">Transport Contracts<span
+                                    class="required">*</span></label>
+                            <input type="number" style="margin-left: 150px; width: 190px; margin-top: 10px;"
+                                formControlName="totalNmbrOfLines" class="form-control form-control-sm" maxlength="5" />
+                            <!-- <small
+                          *ngIf="f.consolidatedIndctr.touched && f.consolidatedIndctr.invalid && f.consolidatedIndctr.errors.required"
+                          style="margin-left: 100px; 
+                        width: 250px;" class="text-danger">
+                          Indicator Required.</small> -->
+                        </div>
+                        <div class="col-md- -1"></div>
+                        <div class="form-group">
+                            <label class="cl" for="totalNoOfTrnsprtEqmtMnfsted">Total No. of Trnsprt Eqpmnt<span
+                                    class="required">*</span></label>
+                            <input type="number" style="margin-left: 150px; width: 190px; margin-top: 10px;"
+                                formControlName="totalNoOfTrnsprtEqmtMnfsted" class="form-control form-control-sm"
+                                maxlength="5" />
+                            <!-- <small *ngIf="f.lineNo.touched && f.lineNo.invalid && f.lineNo.errors.required" style="margin-left: 200px; 
+                    width: 250px;" class="text-danger">
+                          Line No. required.</small> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+       <div class="form-group">
+                <button type="submit" class="btn btn">Save
+                    Details</button>
+            </div>
+    </div>
+ 
+</form>

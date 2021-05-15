@@ -1,0 +1,382 @@
+<app-home></app-home>
+<app-mbl></app-mbl>
+<form [formGroup]="transportDocForm" (ngSubmit)="save()">
+    <div class="row">
+
+        <div class="form-group" style="margin-top: 20px;">
+            <label for="mbl" class="req" style="margin-left: 80px;"> Select MBL NO<span class="required">*</span></label>
+            <select id="mblNo"  formControlName="mblNo" style="width: 200px;" name="mblNo"class="form-control form-control-sm dropdownlistsearch" data-="true">
+                <option>-------Select MBL No-----</option>
+                <option *ngFor="let mcRef of mcRefList">
+                    {{mcRef.mstrBlNo}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-12">
+            
+            <div class="card mb-3" style="margin-left: 5px; margin-top: 30px;">
+                <div class="row no-gutters">
+                    <div class="col-md-12">
+                        <div class="card-header">
+                            <h6 style="color: green;">Consignor</h6>
+                            
+                        </div>
+
+                        <div class="card-body">
+                            <div class="form-row">
+
+                                <div class="form-group mb-12">
+                                    <label for="cnsgnrsName">Consignor’s Name<span class="required">*</span></label>
+                                    <input type="text" formControlName="cnsgnrsName"
+                                        class="form-control form-control-sm" maxlength="70" />
+                                    <small
+                                        *ngIf="f.cnsgnrsName.touched && f.cnsgnrsName.invalid && f.cnsgnrsName.errors.required"
+                                        style="margin-left: 200px; 
+    width: 250px;" class="text-danger">
+                                        Consignor’s Name required.</small>
+
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label for="cnsgnrsCd">Consignor’s Code</label>
+                                    <input type="text" formControlName="cnsgnrsCd" class="form-control form-control-sm"
+                                        maxlength="17" />
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label for="cnsgnrCdTyp">Consignor Code Type</label>
+                                    <input type="text" formControlName="cnsgnrCdTyp"
+                                        class="form-control form-control-sm" maxlength="3" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="cnsgnrStreetAddress">Consignor Street Address<span
+                                            class="required">*</span></label>
+                                    <input type="text" formControlName="cnsgnrStreetAddress"
+                                        class="form-control form-control-sm" maxlength="70" />
+                                    <small
+                                        *ngIf="f.cnsgnrStreetAddress.touched && f.cnsgnrStreetAddress.invalid && f.cnsgnrStreetAddress.errors.required"
+                                        style="margin-left: 200px; 
+                    width: 250px;" class="text-danger">
+                                        Consignor Street Address required.</small>
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label for="cnsgnrCity">Consignor City<span class="required">*</span></label>
+                                    <input type="text" formControlName="cnsgnrCity" class="form-control form-control-sm"
+                                        maxlength="70" />
+                                    <small
+                                        *ngIf="f.cnsgnrCity.touched && f.cnsgnrCity.invalid && f.cnsgnrCity.errors.required"
+                                        style="margin-left: 200px; 
+                    width: 250px;" class="text-danger">
+                                        Consignor City required.</small>
+
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label for="cnsgnrCntrySubDivName">Consignor Sub Div Name</label>
+                                    <input type="text" formControlName="cnsgnrCntrySubDivName"
+                                        class="form-control form-control-sm" maxlength="35" />
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="cnsgnrCntrySubDivCd">Consignor country </label>
+                                    <input type="text" formControlName="cnsgnrCntrySubDivCd"
+                                        class="form-control form-control-sm" maxlength="9" />
+
+
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label for="cnsgnrCntryCd">Consignor Country Code<span
+                                            class="required">*</span></label>
+                                    <input type="text" formControlName="cnsgnrCntryCd"
+                                        class="form-control form-control-sm" maxlength="2" />
+                                    <small
+                                        *ngIf="f.cnsgnrCntryCd.touched && f.cnsgnrCntryCd.invalid && f.cnsgnrCntryCd.errors.required"
+                                        style="margin-left: 200px; 
+                    width: 250px;" class="text-danger">
+                                        Consignor Country Code required.</small>
+
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label for="cnsgnrPstcd">Consignor Post Code</label>
+                                    <input type="text" formControlName="cnsgnrPstcd"
+                                        class="form-control form-control-sm" maxlength="9" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-12">
+            <div class="card mb-3" style="margin-left: 5px; margin-top: 5px;">
+                <div class="row no-gutters">
+                    <div class="col-md-12">
+                        <div class="card-header">
+                            <h6 style="color: green;">Consignee</h6>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="form-row">
+
+                                <div class="form-group">
+                                    <label for="cnsgnesName">Consignee Name<span class="required">*</span></label>
+                                    <input type="text" formControlName="cnsgnesName"
+                                        class="form-control form-control-sm" maxlength="70" />
+                                    <small
+                                        *ngIf="f.cnsgnesName.touched && f.cnsgnesName.invalid && f.cnsgnesName.errors.required"
+                                        style="margin-left: 200px; 
+    width: 250px;" class="text-danger">
+                                        Consignee Name required.</small>
+
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label style="margin-left: 40px;" for="cnsgnesCd">Consignee Code</label>
+                                    <input type="text" formControlName="cnsgnesCd" class="form-control form-control-sm"
+                                        maxlength="17" />
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label style="margin-left: 40px;" for="typOfCd">Type of code</label>
+                                    <input type="text" formControlName="typOfCd" class="form-control form-control-sm"
+                                        maxlength="3" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="cnsgneStreetAddress">Consignee Street Address<span
+                                            class="required">*</span></label>
+                                    <input type="text" formControlName="cnsgneStreetAddress"
+                                        class="form-control form-control-sm" maxlength="70" />
+                                    <small
+                                        *ngIf="f.cnsgneStreetAddress.touched && f.cnsgneStreetAddress.invalid && f.cnsgneStreetAddress.errors.required"
+                                        style="margin-left: 200px; 
+    width: 250px;" class="text-danger">
+                                        Consignee Street Address required.</small>
+
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label style="margin-left: 40px;" for="cnsgneCity">Consignee City<span
+                                            class="required">*</span></label>
+                                    <input type="text" formControlName="cnsgneCity" class="form-control form-control-sm"
+                                        maxlength="70" />
+                                    <small
+                                        *ngIf="f.cnsgneCity.touched && f.cnsgneCity.invalid && f.cnsgneCity.errors.required"
+                                        style="margin-left: 200px; 
+    width: 250px;" class="text-danger">
+                                        Consignor City required.</small>
+
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label style="margin-left: 10px;" for="cnsgneCntrySubDivName">Consignee Country sub
+                                        division
+                                        name</label>
+                                    <input type="text" formControlName="cnsgneCntrySubDivName"
+                                        class="form-control form-control-sm" maxlength="35" />
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="cnsgneCntrySubDiv">Consignee Country Sub division</label>
+                                    <input type="text" formControlName="cnsgneCntrySubDiv"
+                                        class="form-control form-control-sm" maxlength="9" />
+
+
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label for="cnsgneCntryCd">Consignee Country Code<span
+                                            class="required">*</span></label>
+                                    <input type="text" formControlName="cnsgneCntryCd"
+                                        class="form-control form-control-sm" maxlength="2" />
+                                    <small
+                                        *ngIf="f.cnsgneCntryCd.touched && f.cnsgneCntryCd.invalid && f.cnsgneCntryCd.errors.required"
+                                        style="margin-left: 200px; 
+    width: 250px;" class="text-danger">
+                                        Consignee Country Code required.</small>
+
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label for="cnsgnePstcd">Consignee Post Code</label>
+                                    <input type="text" formControlName="cnsgnePstcd"
+                                        class="form-control form-control-sm" maxlength="9" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="card mb-3" style="margin-left: 5px; margin-top: 5px;">
+                <div class="row no-gutters">
+                    <div class="col-md-12">
+                        <div class="card-header">
+                            <h6 style="color: green;">Notified Party</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="prtOfAcptCdd">Port of Acceptance Code<span
+                                            class="required">*</span></label>
+                                    <input type="text" formControlName="prtOfAcptCdd"
+                                        class="form-control form-control-sm" maxlength="10" />
+                                    <small
+                                        *ngIf="f.prtOfAcptCdd.touched && f.prtOfAcptCdd.invalid && f.prtOfAcptCdd.errors.required"
+                                        style="margin-left: 200px; 
+        width: 250px;" class="text-danger">
+                                        Port of Acceptance Code required.</small>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="form-group">
+                                    <label for="prtOfAcptName">Port of Acceptance Name</label>
+                                    <input type="text" formControlName="prtOfAcptName"
+                                        class="form-control form-control-sm" maxlength="256" />
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label style="margin-left: 30px;" for="prtOfReceiptCdd">Port of Receipt Code<span
+                                            class="required">*</span></label>
+                                    <input type="text" formControlName="prtOfReceiptCdd"
+                                        class="form-control form-control-sm" maxlength="10" />
+                                    <small
+                                        *ngIf="f.prtOfReceiptCdd.touched && f.prtOfReceiptCdd.invalid && f.prtOfReceiptCdd.errors.required"
+                                        style="margin-left: 200px; 
+        width: 250px;" class="text-danger">
+                                        Port of Receipt Code required.</small>
+
+                                </div>
+                                <div class="col-md--1"></div>
+
+                                <div class="form-group">
+                                    <label for="prtOfReceiptName">Port of Receipt Name</label>
+                                    <input type="text" formControlName="prtOfReceiptName"
+                                        class="form-control form-control-sm" maxlength="256" />
+
+                                </div>
+
+                                <div class="col-md-1"></div>
+                                <div class="form-group">
+                                    <label for="nameOfAnyOtherNotfdParty">Name of any other Notified Party<span
+                                            class="required">*</span></label>
+                                    <input type="text" formControlName="nameOfAnyOtherNotfdParty"
+                                        class="form-control form-control-sm" maxlength="70" />
+                                    <small
+                                        *ngIf="f.nameOfAnyOtherNotfdParty.touched && f.nameOfAnyOtherNotfdParty.invalid && f.nameOfAnyOtherNotfdParty.errors.required"
+                                        style="margin-left: 200px; 
+        width: 250px;" class="text-danger">
+                                        Name of any other Notified Party required.</small>
+
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label for="panOfNotfdParty">PAN of notified party</label>
+                                    <input type="text" formControlName="panOfNotfdParty"
+                                        class="form-control form-control-sm" style="margin-left: 10px;"
+                                        maxlength="17" />
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="typOfNotfdPartyCd">Type of Notified Party Code</label>
+                                    <input type="text" formControlName="typOfNotfdPartyCd"
+                                        class="form-control form-control-sm" maxlength="3" />
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="form-group">
+                                    <label for="notfdPartyStreetAddress">Notified Party Street Address<span
+                                            class="required">*</span></label>
+                                    <input type="text" formControlName="notfdPartyStreetAddress"
+                                        class="form-control form-control-sm" maxlength="70" />
+                                    <small
+                                        *ngIf="f.notfdPartyStreetAddress.touched && f.notfdPartyStreetAddress.invalid && f.notfdPartyStreetAddress.errors.required"
+                                        style="margin-left: 200px; 
+        width: 250px;" class="text-danger">
+                                        Notified Party Street Address required.</small>
+
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label style="margin-left: 20px;" for="notfdPartyCity">Notified Party City<span
+                                            class="required">*</span></label>
+                                    <input type="text" formControlName="notfdPartyCity"
+                                        class="form-control form-control-sm" style="margin-left: 183px;"
+                                        maxlength="70" />
+                                    <small
+                                        *ngIf="f.notfdPartyCity.touched && f.notfdPartyCity.invalid && f.notfdPartyCity.errors.required"
+                                        style="margin-left: 200px; 
+        width: 250px;" class="text-danger">
+                                        Notified Party City required.</small>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="notfdPartyCntrySubDivName">Notified party country sub division
+                                        name</label>
+                                    <input type="text" formControlName="notfdPartyCntrySubDivName"
+                                        class="form-control form-control-sm" maxlength="35" />
+
+                                </div>
+                                <div class="col-md- -1"></div>
+                                <div class="form-group">
+                                    <label for="notfdPartyCntrySubDiv">Notified party country sub division</label>
+                                    <input type="text" formControlName="notfdPartyCntrySubDiv"
+                                        class="form-control form-control-sm" maxlength="9" />
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label style="margin-left: 20px;" for="ucrTyp">UCR Type</label>
+                                    <input type="text" style="margin-left: 155px;" formControlName="ucrTyp"
+                                        class="form-control form-control-sm" maxlength="3" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="notfdPartyCntryCd">Notified Party Country Code</label>
+                                    <input type="text" formControlName="notfdPartyCntryCd"
+                                        class="form-control form-control-sm" maxlength="2" />
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="form-group">
+                                    <label for="notfdPartyPstcd">Notified Party Post Code</label>
+                                    <input type="text" formControlName="notfdPartyPstcd"
+                                        class="form-control form-control-sm" maxlength="9" />
+                                </div>
+                                <div class="form-group">
+                                    <label style="margin-left: 70px;" for="ucrCd">UCR Code</label>
+                                    <input type="text" style="margin-left: 210px;" formControlName="ucrCd"
+                                        class="form-control form-control-sm" maxlength="35" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="goodsDescAsPerBl">Goods Description as per B/L<span
+                                            class="required">*</span></label>
+                                    <input type="text" formControlName="goodsDescAsPerBl"
+                                        class="form-control form-control-sm" maxlength="512" />
+                                    <small
+                                        *ngIf="f.goodsDescAsPerBl.touched && f.goodsDescAsPerBl.invalid && f.goodsDescAsPerBl.errors.required"
+                                        style="margin-left: 200px; 
+        width: 250px;" class="text-danger">
+                                        Goods Description as per B/L required.</small>
+
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary"
+                                        style="width: 200px; margin-left: 100px; margin-top: 5px; background-color:#75DDB2;">Save</button>
+                                    <button (click)="reset()" type="button"
+                                        style="width: 200px; margin-top: 5px; margin-left: 100px;"
+                                        class="btn btn-info">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
