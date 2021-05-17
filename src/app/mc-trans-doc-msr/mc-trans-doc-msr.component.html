@@ -33,7 +33,33 @@
 
                 <div class="form-group">
                   <label for="typsOfPkgs">Type of Packages <span class="required">*</span></label>
-                  <input type="text" formControlName="typsOfPkgs" class="form-control" maxlength="10" />
+                  <select formControlName="typsOfPkgs" class="form-control form-control-sm">
+                    <option>---Select type of pack---</option>
+                    <option>PKG (PACKAG)</option>
+                    <option>UNT (UNITS)</option>
+                    <option>SKD (SKID)</option>
+                    <option>REL (REELS)</option>
+                    <option>RLS (ROLLS)</option>
+                    <option>PCS (PIECES)</option>
+                    <option>PLT (PALLET)</option>
+                    <option>PAL (PALLS)</option>
+                    <option>LOG (LOGS)</option>
+                    <option>DRM (DRUMS)</option>
+                    <option>COL (COLLIE)</option>
+                    <option>CTN (CARTON)</option>
+                    <option>CRT (CRATES)</option>
+                    <option>CON (CONTAI)</option>
+                    <option>CLS (COILS)</option>
+                    <option>CAS (CASES)</option>
+                    <option>CAN (CANS)</option>
+                    <option>BOX (BOXES)</option>
+                    <option>BLS (BALES)</option>
+                    <option>BLO (BLOCKS)</option>
+                    <option>BLK (BULK)</option>
+                    <option>BGS (BAGS)</option>
+                    <option>BDL (BUNDLE)</option>
+                  </select>
+
                   <!-- <small
                                 *ngIf="f.prtOfAcptCdd.touched && f.prtOfAcptCdd.invalid && f.prtOfAcptCdd.errors.required"
                                 style="margin-left: 200px; 
@@ -69,8 +95,12 @@
 
                 <div class="form-group">
                   <label for="unitOfWeight">Unit of weight </label>
-                  <input type="text" formControlName="unitOfWeight" class="form-control" maxlength="10" />
-
+                  <!-- <input type="text" formControlName="unitOfWeight" class="form-control" maxlength="10" /> -->
+                  <select formControlName="unitOfWeight" class="form-control form-control-sm">
+                    <option>---Select Unit of Weight---</option>
+                    <option>KGS</option>
+                    <option>MTS</option>
+                  </select>
 
                 </div>
 

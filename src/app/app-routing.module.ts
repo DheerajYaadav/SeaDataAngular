@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ConsignerComponent } from './consigner/consigner.component';
 import { EditConsignerComponent } from './edit-consigner/edit-consigner.component';
+import { EditMcrefComponent } from './edit-mcref/edit-mcref.component';
 import { ErrorCodeComponent } from './error-code/error-code.component';
 import { GeneralComponent } from './general/general.component';
 import { HblComponent } from './hbl/hbl.component';
@@ -47,8 +48,8 @@ const routes: Routes = [
   { path: 'mbl/list-mc-transdoc', component: ListMcTransDocComponent },
   { path: 'mbl/list-mc-transdocmsr', component: ListHcTransDocMsrComponent },
   { path: 'mbl/list-mc-transequpmnt', component: ListMcTransEquipmentComponent },
-  { path: 'mbl/ list-mc-itrny', component: ListMcItrnyComponent },
-
+  { path: 'mbl/list-mc-itrny', component: ListMcItrnyComponent },
+  { path: 'mbl/edit-mc-ref', component: EditMcrefComponent},
   { path: 'hbl', component: HblComponent },
   { path: 'hbl/hc-reference', component: HcReferenceComponent },
   { path: 'hbl/hc-itrny', component: HcItnryComponent },

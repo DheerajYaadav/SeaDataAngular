@@ -48,7 +48,14 @@ export class HcTransportEquipmentComponent implements OnInit {
     socFlag: new FormControl('', [Validators.required]),
     cntrAgntCd: new FormControl(),
     cntrWeight: new FormControl(),
-    totalNmbrOfPkgs: new FormControl('', [Validators.required])
+    totalNmbrOfPkgs: new FormControl('', [Validators.required]),
+
+    prtOfCallSeqNmbr: new FormControl('', [Validators.required]),
+    prtOfCallCdd: new FormControl(),
+    prtOfCallName: new FormControl(),
+    nxtPrtOfCallCdd: new FormControl(),
+    nxtPrtOfCallName: new FormControl(),
+    modeOfTrnsprt: new FormControl('', [Validators.required]),
   });
 
   get f() { return this.equipmentForm.controls; }

@@ -1,8 +1,8 @@
 /* .active{
     border-bottom : 2px solid #095d82;
     transition: ease-in-out 0.7s;
-     } */
-     
+     }
+      */
      .sub-selected:after {
 
       border-bottom: 4px solid rgb(117,221,178);

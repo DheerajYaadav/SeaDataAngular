@@ -1,0 +1,25 @@
+label {
+    float: left;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.form-control{
+    margin-left: 100px; 
+    width: 250px;
+    margin-top: 10px;
+}
+.required
+{
+    color: red;
+}
+
+.form-control.ng-touched.ng-invalid {
+  border:1px solid red;
+ }
+ .form-control.ng-touched.ng-valid {
+  border:1px solid green;
+ }
+ .card-header {
+    border-bottom: 2px solid rgb(117,221,178);
+ }

@@ -17,4 +17,10 @@ export class Equipment {
     cntrWeight: number;
     totalNmbrOfPkgs: number;
 
+    prtOfCallSeqNmbr: string;
+    prtOfCallCdd: string;
+    prtOfCallName: string;
+    nxtPrtOfCallCdd: string;
+    nxtPrtOfCallName: string;
+    modeOfTrnsprt: string;
 }

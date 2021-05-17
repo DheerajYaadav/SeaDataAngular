@@ -41,6 +41,10 @@ export class McRefrenceServiceService {
     return this.http.get<ApiResponse>(this.apiUrl + '/mCRef/getMCRefById/' + id);
   }
 
+  
+  getMcRefId(): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(this.apiUrl + '/mCRef/getMcRefId');
+  }
   getAllMbl() {
     return this.http.get(this.apiUrl + '/mCRef/getAllMCRef/true').pipe(
       map((data: MCReferenceResponse[]) => {

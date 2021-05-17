@@ -7,7 +7,7 @@ export class MCReferenceResponse {
     consolidatedIndctr: string;
     prevDec: string;
     consolidatorPan: string;
-    createdAt: Date;
+    createdAt: string;
     firstPrtOfEntry: string
     destPrt: string
     nxtPrtOfUnlading: string

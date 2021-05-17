@@ -35,11 +35,11 @@ export class McTransDocMsrComponent implements OnInit {
 
     id: new FormControl(''),
     nmbrOfPkgs: new FormControl('', [Validators.required]),
-    typsOfPkgs: new FormControl('', [Validators.required]),
+    typsOfPkgs: new FormControl('---Select type of pack---', [Validators.required]),
     marksNoOnPkgs: new FormControl('', [Validators.required]),
     grossWeight: new FormControl(),
     netWeight: new FormControl(),
-    unitOfWeight: new FormControl(),
+    unitOfWeight: new FormControl('---Select Unit of Weight---'),
     grossVolume: new FormControl(),
     unitOfVolume: new FormControl(),
     invoiceValueOfCnsgmt: new FormControl(),

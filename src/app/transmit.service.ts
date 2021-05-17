@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiResponse } from './models/ApiResponse';
 import { Observable, throwError } from 'rxjs';
@@ -12,8 +12,13 @@ export class TransmitService {
   apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
-
-  transmitByMblNo(mblNo: string): Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(this.apiUrl + '/transmit/createJson/' + mblNo);
+  downloadLink(mblNo: string): Observable<HttpResponse<Blob>> {
+    return this.http.get<Blob>(this.apiUrl + '/transmit/createJson/' + mblNo, {
+      observe: 'response',
+      responseType: 'blob' as 'json'
+    });
   }
+  // transmitByMblNo(mblNo: string): any {
+  //   return this.http.get(this.apiUrl + '/transmit/createJson/' + mblNo,{responseType: 'blob'});
+  // }
 }

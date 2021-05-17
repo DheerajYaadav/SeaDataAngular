@@ -29,7 +29,7 @@ import { ItrnyComponent } from './itrny/itrny.component';
 import { EditConsignerComponent } from './edit-consigner/edit-consigner.component';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { ListFilterPipe } from './list-consigner/list-consignor-filter';
-import { DecimalPipe, JsonPipe } from '@angular/common';
+import { DatePipe, DecimalPipe, JsonPipe } from '@angular/common';
 import { HcReferenceComponent } from './hc-reference/hc-reference.component';
 import { ListMcrefComponent } from './list-mcref/list-mcref.component';
 import { HcTransportDocMsrComponent } from './hc-transport-doc-msr/hc-transport-doc-msr.component';
@@ -44,10 +44,11 @@ import { ListHcTransEquipmentComponent } from './list-hc-trans-equipment/list-hc
 import { ListHcTransDocMsrComponent } from './list-hc-trans-doc-msr/list-hc-trans-doc-msr.component';
 import { ListHcTransDocComponent } from './list-hc-trans-doc/list-hc-trans-doc.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { HcItnryComponent } from './hc-itnry/hc-itnry.component';
 import { TransmitComponent } from './transmit/transmit.component';
 import { PrettyJsonModule } from 'angular2-prettyjson';
 import { SafeJsonPipe } from 'angular2-prettyjson/src/json.pipe';
+import { HcItnryComponent } from './hc-itnry/hc-itnry.component';
+import { EditMcrefComponent } from './edit-mcref/edit-mcref.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { SafeJsonPipe } from 'angular2-prettyjson/src/json.pipe';
     ListHcTransDocMsrComponent,
     ListHcTransDocComponent,
     TransmitComponent,
+    EditMcrefComponent,
   ],
   imports: [
     ConfirmationPopoverModule.forRoot({
@@ -104,7 +106,7 @@ import { SafeJsonPipe } from 'angular2-prettyjson/src/json.pipe';
     NgbModule,
     NgxSpinnerModule
   ],
-  providers: [DecimalPipe],
+  providers: [DecimalPipe, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

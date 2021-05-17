@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { McRefrenceServiceService } from '../mc-refrence-service.service';
 import { MCReferenceResponse } from '../models/MCReferenceResponse';
 import { TransmitService } from '../transmit.service';
+import * as fileSaver from 'file-saver';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-transmit',
@@ -35,17 +37,17 @@ export class TransmitComponent implements OnInit {
   transmit() {
     let mblNo = this.transmitForm.value.mblNo;
     console.log("item selected"+ this.transmitForm.value.mblNo);
-    this.transmitService.transmitByMblNo(mblNo)
-    .subscribe(data => {
-      this.json = true;
-      this.jsonObject = data['result'];
-      this.ab = JSON.stringify(this.jsonObject);
-      console.log(this.ab);
-    });
-  }
 
-}
-function subscribe(arg0: (data: any) => void) {
-  throw new Error('Function not implemented.');
-}
+    this.transmitService.downloadLink(mblNo)
+    .subscribe(
+      (resp: HttpResponse<Blob>) => {
+        var contentDisposition = resp.headers.get('content-disposition');
+        console.log(contentDisposition);
+        let  data = resp.body;
+        console.log(data);
+        var filename = contentDisposition.split(';')[1].split('filename')[1].split('=')[1].trim();
+        fileSaver.saveAs(data, filename);
+      });
+  }
+  }
 

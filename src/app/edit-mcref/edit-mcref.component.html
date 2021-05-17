@@ -1,6 +1,6 @@
 <app-home></app-home>
 <app-mbl></app-mbl>
-<form [formGroup]="mcRefForm" (ngSubmit)="save()">
+<form [formGroup]="editMCRefForm" (ngSubmit)="save()">
   <div class="row">
     <div class="col-sm-6">
       <div class="card mb-3" style="margin-left: 10px; margin-top: 5px;">
@@ -13,6 +13,7 @@
           <div class="form-row">
             <div class="form-group">
               <input type="hidden" formControlName="id" class="form-control form-control-sm"/>
+              <input type="hidden" formControlName="createdAt" class="form-control form-control-sm"/>
               <label for="name">Line No.<span class="required">*</span></label>
               <input type="number" formControlName="lineNo" class="form-control form-control-sm" maxlength="5" />
               <small *ngIf="f.lineNo.touched && f.lineNo.invalid && f.lineNo.errors.required" style="margin-left: 200px; 
@@ -42,6 +43,7 @@
             <div class="form-group">
               <label for="name">Consolidated Indicator<span class="required">*</span></label>
               <select formControlName="consolidatedIndctr" class="form-control form-control-sm">
+                <option>---Select Consolidted Indctr---</option>
                 <option>S</option>
                 <option>C</option>
                 <option>H</option>
@@ -56,11 +58,12 @@
             <div class="form-group">
               <label for="name">Previous Declartion<span class="required">*</span></label>
               <select formControlName="prevDec" class="form-control form-control-sm">
+                <option>---Select Previous Dec---</option>
                 <option>N</option>
                 <option>C</option>
                 <option>Y</option>
               </select>
-              <div *ngIf="mcRefForm.value.prevDec ==='Y'">
+              <div *ngIf="editMCRefForm.value.prevDec ==='Y'">
                 <button data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" type="button"
                   class="btn btn-success btn-sm">
                   + Prev Dec</button>
@@ -225,6 +228,7 @@ width: 250px;" class="text-danger">
               <div class="form-group">
                 <label for="natrOfCrgo">Nature of Cargo<span class="required">*</span></label>
                 <select formControlName="natrOfCrgo" class="form-control form-control-sm">
+                  <option>---Select Nature of Cargo---</option>
                   <option>C-Containerized</option>
                   <option>LB-Liquid Bulk</option>
                   <option>DB-Dry Bulk</option>
@@ -237,6 +241,7 @@ width: 250px;" class="text-danger">
               <div class="form-group">
                 <label for="itemTyp">Item Type<span class="required">*</span></label>
                 <select formControlName="itemTyp" class="form-control form-control-sm">
+                  <option>---Select Item Type---</option>
                   <option>Govt. Cargo-GC</option>
                   <option>Unaccompanied Baggage-UB</option>
                   <option>Other Cargo-OT</option>
@@ -250,6 +255,7 @@ width: 250px;" class="text-danger">
               <div class="form-group">
                 <label for="crgoMvmt">Cargo Movement<span class="required">*</span></label>
                 <select formControlName="crgoMvmt" class="form-control form-control-sm">
+                  <option>---Select Cargo Mvmnt---</option>
                   <option>LC-Local Clearance</option>
                   <option>TI-Domestic Transshipment</option>
                   <option>TC-Foreign Transshipment</option>
@@ -263,6 +269,7 @@ width: 250px;" class="text-danger">
               <div class="form-group">
                 <label for="typOfCrgo">Type of Cargo<span class="required">*</span></label>
                 <select formControlName="typOfCrgo" class="form-control form-control-sm">
+                  <option>---Select Type of Cargo---</option>
                   <option>IM</option>
                   <option>EX</option>
                   <option>CG</option>
@@ -274,7 +281,7 @@ width: 250px;" class="text-danger">
               width: 250px;" class="text-danger">
                   Type of Cargo Required.</small>
               </div>
-              <button type="submit" class="btn btn-primary" style="width: 200px; margin-left: 50px; background-color: #75DDB2;">Save</button>
+              <button type="submit" class="btn btn-primary" style="width: 200px; margin-left: 50px; background-color: #75DDB2;">Update</button>
               <div class="col-md-2"></div>
               <button (click)="reset()" type="button" class="btn btn-info" style="width: 10rem; margin-left: 50px;">Reset</button>
             </div>

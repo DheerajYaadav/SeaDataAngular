@@ -15,39 +15,54 @@ export class GeneralComponent implements OnInit {
 
   submitted = false;
   formData = false;
+  jobNo: number;
+  currentDate:Date;
+
   mcRefList: MCReferenceResponse[];
   constructor(private mcRefService: McRefrenceServiceService, private notifyService: NotificationService, private generalService: GeneralService) { }
 
   ngOnInit(): void {
+    
+    this.currentDate = new Date();
+
+    this.generalService.getJobId().subscribe((data:any) => {
+       this.jobNo = data['result'].result;
+      console.log("long id..."+data['result'].result);
+      ;
+    });
     this.mcRefService.getAllMbl().subscribe((data:any) => {
       this.mcRefList = data['result'].result;
       console.log(data['result'].result);
       ;
     });
   }
+
+
   generalForm = new FormGroup({
 
     id: new FormControl(),
-    mblNo: new FormControl(),
+    mblNo: new FormControl('', [Validators.required]),
     senderID: new FormControl('', [Validators.required]),
     receiverID: new FormControl('', [Validators.required]),
     versionNo: new FormControl('', [Validators.required]),
     indicator: new FormControl('', [Validators.required]),
     messageID: new FormControl('', [Validators.required]),
     sequenceOrControlNumber: new FormControl('', [Validators.required]),
-    reportingEvent: new FormControl('Select Event Reporting', [Validators.required]),
+    reportingEvent: new FormControl('SCE', [Validators.required]),
 
-    msgTyp: new FormControl('', [Validators.required]),
+    msgTyp: new FormControl('F-Fresh', [Validators.required]),
     prtofRptng: new FormControl('', [Validators.required]),
     jobNo: new FormControl('', [Validators.required]),
-    reportingEvent1: new FormControl('Select Event Reporting', [Validators.required]),
-    sbmtrTyp: new FormControl('', [Validators.required]),
+    jobDate: new FormControl('20210515', [Validators.required]),
+
+    reportingEvent1: new FormControl('SCE', [Validators.required]),
+    sbmtrTyp: new FormControl('ANC', [Validators.required]),
     sbmtrCd: new FormControl('', [Validators.required]),
     authReprsntvCd: new FormControl('', [Validators.required]),
 
 
-    modeOfTrnsprt: new FormControl('', [Validators.required]),
-    typOfTrnsprtMeans: new FormControl('', [Validators.required]),
+    modeOfTrnsprt: new FormControl('1-Sea', [Validators.required]),
+    typOfTrnsprtMeans: new FormControl('10-IMO Vessel', [Validators.required]),
     trnsprtMeansId: new FormControl('', [Validators.required]),
     cnvnceRefNmbr: new FormControl('', [Validators.required]),
     totalNoOfTrnsprtEqmtMnfsted: new FormControl('', [Validators.required]),
@@ -67,7 +82,7 @@ export class GeneralComponent implements OnInit {
           console.log(data['status']);
           if (data['status'] == 200) {
             //this.route.navigateByUrl("/mctrans-doc-msr");
-            this.notifyService.showSuccess(data['message'], this.generalForm.value.mblNo);
+            this.notifyService.showSuccess(data['message'], this.generalForm.value.mblNo );
             this.formData = true;
           }
           else {

@@ -77,7 +77,7 @@ search(){
     this.dataService.setMessage(document.getElementById("edit").innerHTML)
     window.localStorage.removeItem("editMcRefId");
     window.localStorage.setItem("editMcRefId", mcObject.id.toString());
-    this.route.navigateByUrl("/mc-reference");
+    this.route.navigateByUrl("/mbl/edit-mc-ref");
   };
   addMBL(): void {
     

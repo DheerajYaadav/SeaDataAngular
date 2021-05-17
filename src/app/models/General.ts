@@ -11,8 +11,9 @@ export class General {
 
     msgTyp: string;
     prtofRptng: string;
+    jobDate:Date;
     jobNo: string;
-    rptngEvent: string;
+    reportingEvent1: string;
 
     sbmtrTyp: string;
     sbmtrCd: string;

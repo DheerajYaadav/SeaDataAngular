@@ -1,6 +1,5 @@
-
-<div class="row" style="background-image: url('../assets/img/login.jpg');">
-        <!-- <img src="../assets/img/login.jpg" class="rounded">  -->
+<!-- 
+<div class="row" >
     <div class="col-md-2"></div>
         <div class="card mb-3">
             <div class="row no-gutters">
@@ -37,5 +36,49 @@
 </div>
 </div>
 </div>
-</div>
+</div> -->
+
+<!doctype html>
+<html>
+<body>
+    <div class="row" >
+        <div class="col-md-2"></div>
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-12">
+    
+        <h5 class="card-header text-white text-center p-3" style="background-color: #75DDB2;">Please Login</h5>
+    <div class="card-body">
+    
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="lb" for="name" >User-Name</label> <span class="required">*</span>
+                    <input type="text" formControlName="name" class="form-control" />
+                  
+                    <small *ngIf="f.name.touched && f.name.invalid" style="margin-left: 100px; 
+                    width: 250px;" class="text-danger">
+                         User-Name is required.</small>   
+                </div>
+                <div class="col-md-2"></div>
+                <div class="form-group">
+                    <label class="lb" for="password">Password</label><span class="required">*</span>
+                    <input type="password" formControlName="password" class="form-control"/>
+                    <small *ngIf="f.password.touched && f.name.invalid" style="margin-left: 100px; 
+                    width: 250px;" class="text-danger">
+                        Password is required.</small>  
+                </div>
+                <div class="col-md-2"></div>
+                <button type="submit" [disabled]="!loginForm.valid" class="btn btn-outline-success"  style="margin-left: 150px; width: 10rem; font-family: open-sans-regular; font-weight: 400; font-size: 16px; text-align: center;">Login</button>
+                <div class="col-md-2"></div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+    </div>
+    </div>
+    </div>
+    </div> 
+</body>
+</html>
 <router-outlet></router-outlet>
